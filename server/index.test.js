@@ -1,6 +1,6 @@
 const {sequelize} = require('./db')
-const {Sauce, Item} = require('./models/index')
-const {sauces, items} = require('./seedData')
+const {Item} = require('./models/index')
+const {items} = require('./seedData')
 import "regenerator-runtime/runtime.js"
 
 describe('Sauce, Item Models', () => {
