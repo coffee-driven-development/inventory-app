@@ -1,3 +1,5 @@
 const { Item } = require('./Item')
+const { Sequelize } = require('sequelize')
+const { sequelize } = require('../db')
 
-module.exports = { Item }
+module.exports = { db: sequelize, Item }
