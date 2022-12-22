@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const {Sequelize} = require('sequelize')
 const {sequelize} = require('../db')
 
@@ -10,3 +11,8 @@ module.exports = {
   db: sequelize,
   Sauce,
 };
+=======
+const {Item} = require('./Item')
+
+module.exports = { Item };
+>>>>>>> 7f493279e5e98e03480eaa6f4d5ea223468b3625
