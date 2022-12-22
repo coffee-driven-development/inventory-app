@@ -33,8 +33,11 @@ export const Page = () => {
         <>
             {singlePageView ? (
                 <>
-                    <h3>{props.item.name}</h3>
-                    <img src={props.itemimage} alt={props.item.name} />
+                    <h3>{props.item.title}</h3>
+                    <img src={props.image} alt={props.item.name} />
+                    <p>{props.item.description}</p>
+                    <p>{props.item.price}</p>
+                    <p>{props.item.category}</p>
                     <button onClick={handleBackButton}>Back to Wiki List</button>
                 </>
 
