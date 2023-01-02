@@ -26,7 +26,7 @@ export const App = () => {
   }, []);
 
   return (
-    <main>
+    <main className="main-container">
       <h1>Inventory App</h1>
       <h2>All things 🔥</h2>
       <ItemsList

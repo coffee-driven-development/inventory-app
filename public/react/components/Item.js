@@ -35,12 +35,14 @@ export const Item = ({
     <>
       {singlePageView ? (
         <>
-          <h3>{item.title}</h3>
-          <img src={item.image} alt={item.name} className="image" />
-          <p>{item.description}</p>
-          <p>{item.price}</p>
-          <p>{item.category}</p>
-          <button onClick={handleBackButton}>Back to Items List</button>
+          <div className="item-container">
+            <h3>{item.title}</h3>
+            <img src={item.image} alt={item.name} className="image" />
+            <p>{item.description}</p>
+            <p>{item.price}</p>
+            <p>{item.category}</p>
+            <button onClick={handleBackButton}>Back to Items List</button>
+          </div>
         </>
       ) : (
         <h3 onClick={showSinglePageView}>{item.title}</h3>
