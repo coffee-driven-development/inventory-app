@@ -14,6 +14,7 @@ export const App = () => {
 			const itemsData = await response.json();
 			
 			setItems(itemsData);
+      console.log(itemsData)
 		} catch (err) {
 			console.log("Oh no an error! ", err)
 		}
@@ -22,6 +23,10 @@ export const App = () => {
 	useEffect(() => {
 		fetchItems();
 	}, []);
+
+  // const renderPages=()=>{
+    
+  // }
 
 	return (
 		<main>	
