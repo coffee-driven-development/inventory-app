@@ -1,48 +1,50 @@
-import React, { useEffect } from "react"
-import apiURL from "../api"
+import React, { useEffect, useState } from "react";
+import apiURL from "../api";
 
-export const Page = () => {
-    const [singlePageView, setSinglePageView] = useState(false)
-
-    const fetchItem = async () => {
-        try {
-            // single article page
-            const res = await fetch(`${apiURL}/item/`)
-            const data = await res.json()
-            console.log(data)
-            // TODO: handle state
-        } catch (err) {
-            console.log(err)
-        }
+export const Item = ({
+  item,
+  singlePageView,
+  setSinglePageView,
+  setCurrentItem,
+}) => {
+  const fetchItem = async () => {
+    try {
+      const res = await fetch(`${apiURL}/items/${item.id}`);
+      const data = await res.json();
+      console.log(data.id);
+      setCurrentItem(data.id);
+    } catch (err) {
+      console.log(err);
     }
+  };
 
-    useEffect(() => {
-        fetchItem()
-    }, [])
+  useEffect(() => {
+    fetchItem();
+  }, []);
 
-    const showSinglePageView = () => {
-        fetchItem()
-        setSinglePageView(!singlePageView)
-    }
+  const showSinglePageView = () => {
+    fetchItem();
+    setSinglePageView(!singlePageView);
+  };
 
-    const handleBackButton = async () => {
-        setSinglePageView(!singlePageView)
-    }
+  const handleBackButton = async () => {
+    setSinglePageView(!singlePageView);
+  };
 
-    return (
+  return (
+    <>
+      {singlePageView ? (
         <>
-            {singlePageView ? (
-                <>
-                    <h3>{props.item.title}</h3>
-                    <img src={props.image} alt={props.item.name} />
-                    <p>{props.item.description}</p>
-                    <p>{props.item.price}</p>
-                    <p>{props.item.category}</p>
-                    <button onClick={handleBackButton}>Back to Wiki List</button>
-                </>
-
-            ) : (<h3 onClick={showSinglePageView}>Item</h3>)
-            }
+          <h3>{item.title}</h3>
+          <img src={item.image} alt={item.name} className="image" />
+          <p>{item.description}</p>
+          <p>{item.price}</p>
+          <p>{item.category}</p>
+          <button onClick={handleBackButton}>Back to Items List</button>
         </>
-    )
-}
+      ) : (
+        <h3 onClick={showSinglePageView}>{item.title}</h3>
+      )}
+    </>
+  );
+};
