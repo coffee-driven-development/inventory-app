@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from "react";
 import apiURL from "../api";
 
-export const Item = ({ item }) => {
-  const [singlePageView, setSinglePageView] = useState(false);
-  const [showItem, setShowItem] = useState(true);
-
-  const fetchItem = async (id) => {
+export const Item = ({
+  item,
+  singlePageView,
+  setSinglePageView,
+  setCurrentItem,
+}) => {
+  const fetchItem = async () => {
     try {
-      const res = await fetch(`${apiURL}/items/${id}`);
+      const res = await fetch(`${apiURL}/items/${item.id}`);
       const data = await res.json();
-      console.log(data);
-      setShowItem(data);
-      // TODO: handle state
+      console.log(data.id);
+      setCurrentItem(data.id);
     } catch (err) {
       console.log(err);
     }
@@ -35,14 +36,14 @@ export const Item = ({ item }) => {
       {singlePageView ? (
         <>
           <h3>{item.title}</h3>
-          <img src={item.image} alt={item.name} />
+          <img src={item.image} alt={item.name} className="image" />
           <p>{item.description}</p>
           <p>{item.price}</p>
           <p>{item.category}</p>
-          <button onClick={handleBackButton}>Back to Wiki List</button>
+          <button onClick={handleBackButton}>Back to Items List</button>
         </>
       ) : (
-        <h3 onClick={showSinglePageView}>Item</h3>
+        <h3 onClick={showSinglePageView}>{item.title}</h3>
       )}
     </>
   );
