@@ -2,49 +2,22 @@ import React, { useEffect, useState } from "react";
 import apiURL from "../api";
 
 export const Item = ({
-  item,
-  singlePageView,
-  setSinglePageView,
-  setCurrentItem,
+  setSelectedPage,
+  currentItem,
 }) => {
-  const fetchItem = async () => {
-    try {
-      const res = await fetch(`${apiURL}/items/${item.id}`);
-      const data = await res.json();
-      console.log(data.id);
-      setCurrentItem(data.id);
-    } catch (err) {
-      console.log(err);
-    }
-  };
-
-  useEffect(() => {
-    fetchItem();
-  }, []);
-
-  const showSinglePageView = () => {
-    fetchItem();
-    setSinglePageView(!singlePageView);
-  };
 
   const handleBackButton = async () => {
-    setSinglePageView(!singlePageView);
+    setSelectedPage("Main View");
   };
 
   return (
-    <>
-      {singlePageView ? (
-        <>
-          <h3>{item.title}</h3>
-          <img src={item.image} alt={item.name} className="image" />
-          <p>{item.description}</p>
-          <p>{item.price}</p>
-          <p>{item.category}</p>
+      <>
+          <h3>{currentItem.title}</h3>
+          <img src={currentItem.image} alt={currentItem.name} className="image" />
+          <p>{currentItem.description}</p>
+          <p>{currentItem.price}</p>
+          <p>{currentItem.category}</p>
           <button onClick={handleBackButton}>Back to Items List</button>
-        </>
-      ) : (
-        <h3 onClick={showSinglePageView}>{item.title}</h3>
-      )}
-    </>
+      </>
   );
 };

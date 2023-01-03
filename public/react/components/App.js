@@ -4,14 +4,13 @@ import { AddItem } from "./AddItem"
 
 // import and prepend the api url to any fetch calls
 import apiURL from "../api";
+import { Item } from "./Item";
 
 export const App = () => {
   const [items, setItems] = useState([]);
-  const [singlePageView, setSinglePageView] = useState(false);
-  const [currentItem, setCurrentItem] = useState("");
+  const [currentItem, setCurrentItem] = useState({});
   const [newItem, setNewItem] = useState({title: '', description: '', price: 0, category: '', image: ''})
-  const [toggleForm, setToggleForm] = useState(false)
-  
+  const [selectedPage, setSelectedPage] = useState("Main View")
 
   async function fetchItems() {
     try {
@@ -30,32 +29,41 @@ export const App = () => {
   }, []);
 
   const handleAddItemButton = () => {
-    setToggleForm(true)
+    setSelectedPage("Add Item")
   }
 
-  if(!toggleForm) {
+  if(selectedPage === "Main View") {
     return (<main>
         <h1>Inventory App</h1>
         <h2>All Items</h2>
-        <ItemsList
-          items={items}
-          singlePageView={singlePageView}
-          setSinglePageView={setSinglePageView}
-          currentItem={currentItem}
-          setCurrentItem={setCurrentItem}
-          />
+        <div>
+          {items.map((item, idx) => <ItemsList
+            item={item}
+            key={idx}
+            setSelectedPage={setSelectedPage}
+            setCurrentItem={setCurrentItem}
+            />)}
+        </div>
         <button onClick={handleAddItemButton}>Add Item</button>
     </main>
   )}
-  else if(toggleForm) {
+  else if (selectedPage === "Add Item") {
     return (<main>
       <h1>Add Item</h1>
       <AddItem
         newItem={newItem}
         setNewItem={setNewItem}
-        toggleForm={toggleForm}
-        setToggleForm={setToggleForm}
-        fetchItems={fetchItems}
+        selectedPage={selectedPage}
+        setSelectedPage={setSelectedPage}
+      />
+    </main>
+  )}
+
+  else if (selectedPage === "Single Item") {
+    return(<main>
+      <Item
+        setSelectedPage={setSelectedPage}
+        currentItem={currentItem}
       />
     </main>
   )}

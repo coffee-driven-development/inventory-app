@@ -5,8 +5,7 @@ import apiURL from "../api";
 export const AddItem = ({
     newItem,
     setNewItem,
-    fetchItems,
-    setToggleForm
+    setSelectedPage
 }) => {
 
     async function postItem() {
@@ -17,8 +16,6 @@ export const AddItem = ({
                 body: JSON.stringify(newItem)
             }
             const response = await fetch(`${apiURL}/items`, requestOptions)
-
-            
         } catch (err) {
           console.log("Oh no an error! ", err);
         }
@@ -33,14 +30,12 @@ export const AddItem = ({
     }
 
     const handleSubmit = async (e) => {
-        e.preventDefault()
         postItem()
         setNewItem({title: '', description: '', price: 0, category: '', image: ''})
     }
 
     const handleBackButton = async () => {
-        setToggleForm(false)
-        fetchItems()
+        setSelectedPage("Main View")
     }
 
     return (
