@@ -7,6 +7,7 @@ import apiURL from '../api';
 export const App = () => {
 
 	const [items, setItems] = useState([]);
+  const [inventoryData, setInventoryData] = useState([])
 
 	async function fetchItems(){
 		try {
