@@ -17,7 +17,7 @@ router.get('/', async(req,res,next)=>{
   }
 })
 
-router.get('/:id',async(req,res)=>{
+router.get('/:id',async(req,res,next)=>{
     try{
         const item = await Item.findByPk(req.params.id)
         res.send(item)
@@ -25,6 +25,16 @@ router.get('/:id',async(req,res)=>{
         next(error)
     }
     
+})
+
+router.post('/', async(req,res,next) => {
+    try{
+      const newItem = await Item.create(req.body)
+      res.send(newItem)
+    } 
+    catch(error){
+      next(error)
+    }
 })
 
 
