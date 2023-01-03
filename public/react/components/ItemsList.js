@@ -1,44 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Item } from "./Item";
 
-export const ItemsList = ({
-  items,
-  singlePageView,
-  setSinglePageView,
-  currentItem,
-  setCurrentItem,
-}) => {
+export const ItemsList = ({ item, setSelectedPage, setCurrentItem }) => {
+  const handleClick = () => {
+    setSelectedPage("Single Item");
+    setCurrentItem(item);
+  };
+
   return (
     <>
-      <div className="itemsList-container">
-        {singlePageView
-          ? items.map((item, idx) => {
-              return (
-                item.id === currentItem && (
-                  <Item
-                    item={item}
-                    key={idx}
-                    singlePageView={singlePageView}
-                    setSinglePageView={setSinglePageView}
-                    currentItem={currentItem}
-                    setCurrentItem={setCurrentItem}
-                  />
-                )
-              );
-            })
-          : items.map((item, idx) => (
-              <Item
-                item={item}
-                key={idx}
-                singlePageView={singlePageView}
-                setSinglePageView={setSinglePageView}
-                currentItem={currentItem}
-                setCurrentItem={setCurrentItem}
-              />
-            ))}
-      </div>
+      <p onClick={handleClick}>{item.title}</p>
     </>
   );
 };
-
-// export default ItemsList
