@@ -11,8 +11,6 @@ export const App = () => {
   const [currentItem, setCurrentItem] = useState("");
   const [newItem, setNewItem] = useState({title: '', description: '', price: 0, category: '', image: ''})
   const [toggleForm, setToggleForm] = useState(false)
-    const [inventoryData, setInventoryData] = useState([])
-
 
   async function fetchItems() {
     try {
