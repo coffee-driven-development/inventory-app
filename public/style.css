@@ -1,7 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans&display=swap');
+
 * {
   margin: 0;
   box-sizing: border-box;
   background-color: rgb(223, 223, 223);
+  font-family: 'DM Sans', sans-serif;
 }
 
 *, *:before, *:after {
