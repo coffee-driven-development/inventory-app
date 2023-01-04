@@ -22,19 +22,6 @@ export const Item = ({
     fetchDelete(e.target.value)
   }
 
-  // const handleDelete=async(currentItemID)=>{
-  //   try {
-  //     const requestOptions = {
-  //         method: 'DELETE',
-  //         headers: {'Content-Type': 'application/JSON'}
-  //     }
-  //     const response = await fetch(`${apiURL}/items/${currentItemID}`, requestOptions)
-  //     setSelectedPage("Main View")
-  //   } catch (err) {
-  //     console.log("Oh no an error! ", err);
-  //   }
-  // }
-
   const handleBackButton = async () => {
     setSelectedPage("Main View");
   };
@@ -42,13 +29,17 @@ export const Item = ({
 
   return (
       <>
-          <h3>{currentItem.title}</h3>
-          <img src={currentItem.image} alt={currentItem.name} className="image" />
-          <p>{currentItem.description}</p>
-          <p>{currentItem.price}</p>
-          <p>{currentItem.category}</p>
-          <button onClick={handleDelete} value={currentItemID}>Delete</button>
-          <button onClick={handleBackButton}>Back to Items List</button>
+          <h3 className="single-item-header">{currentItem.title}</h3>
+          <div className="item-content">
+            <img src={currentItem.image} alt={currentItem.name} className="image" />
+            <p className="price">${currentItem.price}</p>
+            <p className="single-item"><span className="bold">Description: </span>{currentItem.description}</p>
+            <p className="single-item"><span className="bold">Category: </span>{currentItem.category}</p>
+          </div>
+          <div className="buttons-div">
+            <button onClick={handleDelete} value={currentItemID} className='button-59'>Delete</button>
+            <button onClick={handleBackButton} className='button-59'>Back to Items List</button>
+          </div>
       </>
   );
 };

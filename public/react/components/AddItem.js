@@ -40,20 +40,39 @@ export const AddItem = ({
 
     return (
             <>
-                <form onSubmit = {handleSubmit}>
-                    <input type='text' name='title' value={ newItem.title }
-                        onChange={handleChange} />
-                    <input type='text' name='description' value = {newItem.description}
-                        onChange={handleChange} />
-                    <input type='number' name='price' value = {newItem.price}
-                        onChange={handleChange} />
-                    <input type='text' name='category' value = {newItem.category}
-                        onChange={handleChange} />
-                    <input type='text' name='image' value = {newItem.image}
-                        onChange={handleChange} />
-                    <button type='submit'>Submit</button>
-                    <button onClick={handleBackButton}>Back to Wiki List</button>
-                </form>
+                <div className="form-page-style">
+                    <form onSubmit = {handleSubmit}>
+                        <label for="title">Item name:</label>
+                        <br></br>
+                        <input type='text' name='title' value={ newItem.title }
+                            onChange={handleChange} className='input-form' />
+                        <br></br>
+                        <label for="description">Description:</label>
+                        <br></br>
+                        <input type='text' name='description' value = {newItem.description}
+                            onChange={handleChange} className='input-form' />
+                        <br></br>
+                        <label for="price">Price:</label>
+                        <br></br>
+                        <input type='number' name='price' value = {newItem.price}
+                            onChange={handleChange} className='input-form' />
+                        <br></br>
+                        <label for="category">Category:</label>
+                        <br></br>
+                        <input type='text' name='category' value = {newItem.category}
+                            onChange={handleChange} className='input-form' />
+                        <br></br>
+                        <label for="image">Image:</label>
+                        <br></br>
+                        <input type='text' name='image' value = {newItem.image}
+                            onChange={handleChange} className='input-form' />
+                        <br></br><br></br>
+                        <div className="buttons-div">
+                          <button type='submit' className='button-59'>Submit</button>
+                          <button onClick={handleBackButton} className='button-59'>Back to Wiki List</button>
+                        </div>
+                    </form>
+                </div>
             </>
           );
 }

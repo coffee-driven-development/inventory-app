@@ -14,7 +14,7 @@ export const ItemsList = ({
 
   return (
     <>
-      <p onClick={handleClick}>{item.title}</p>
+      <p onClick={handleClick} className='item-list'>{item.title}</p>
     </>
   );
 };
