@@ -53,7 +53,7 @@ export const App = () => {
   else if (selectedPage === "Add Item") {
     return (<main>
       <h1 className="align-header">Inventory App</h1>
-      <h2 className="align-header">Add Items</h2>
+      <h2 className="align-header">Add Item</h2>
       <hr></hr>
       <AddItem
         newItem={newItem}
@@ -67,7 +67,7 @@ export const App = () => {
   else if (selectedPage === "Single Item") {
     return(<main>
         <h1 className="align-header">Inventory App</h1>
-        <h2 className="align-header">{currentItem.title}</h2>
+        <h2 className="align-header">View Item</h2>
         <hr></hr>
       <Item
         setSelectedPage={setSelectedPage}
