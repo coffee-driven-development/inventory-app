@@ -8,10 +8,19 @@
   box-sizing: border-box;
 }
 
-.image {
+img {
+  display: block;
   width: 250px;
   height: 250px;
+  margin: 0 auto;
+}
 
+.bold{
+  font-weight: bold;
+}
+
+.price{
+  font-size: 1.75rem;
 }
 
 .align-header{
@@ -61,6 +70,19 @@ form{
   color: #06f;
 }
 
+.single-item-header{
+  text-align: center;
+}
+
+.item-content{
+  margin: 10px auto;
+  width: 600px;
+}
+
+.single-item{
+  padding: 5px .33rem;
+  font-size: 1.1rem;
+}
 
 .button-59 {
   align-items: center;
