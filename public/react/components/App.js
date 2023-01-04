@@ -72,6 +72,7 @@ export const App = () => {
       <Item
         setSelectedPage={setSelectedPage}
         currentItem={currentItem}
+        fetchItems={fetchItems}
       />
     </main>
   )}
