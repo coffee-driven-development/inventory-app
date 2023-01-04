@@ -40,7 +40,7 @@ export const App = () => {
 
   if (selectedPage === "Main View") {
     return (
-      <main>
+      <main className="main-container">
         <h1>Inventory App</h1>
         <h2>All Items</h2>
         <div>

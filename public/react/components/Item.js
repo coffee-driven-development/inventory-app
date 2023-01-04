@@ -8,12 +8,14 @@ export const Item = ({ setSelectedPage, currentItem }) => {
 
   return (
     <>
-      <h3>{currentItem.title}</h3>
-      <img src={currentItem.image} alt={currentItem.name} className="image" />
-      <p>{currentItem.description}</p>
-      <p>{currentItem.price}</p>
-      <p>{currentItem.category}</p>
-      <button onClick={handleBackButton}>Back to Items List</button>
+      <div className="itemsList-container">
+        <h3>{currentItem.title}</h3>
+        <img src={currentItem.image} alt={currentItem.name} className="image" />
+        <p>{currentItem.description}</p>
+        <p>{currentItem.price}</p>
+        <p>{currentItem.category}</p>
+        <button onClick={handleBackButton}>Back to Items List</button>
+      </div>
     </>
   );
 };

@@ -9,7 +9,9 @@ export const ItemsList = ({ item, setSelectedPage, setCurrentItem }) => {
 
   return (
     <>
-      <p onClick={handleClick}>{item.title}</p>
+      <p onClick={handleClick} className="itemList">
+        {item.title}
+      </p>
     </>
   );
 };
