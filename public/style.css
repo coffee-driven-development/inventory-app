@@ -4,13 +4,17 @@
   background-color: rgb(223, 223, 223);
 }
 
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
 .image {
   width: 250px;
   height: 250px;
 
 }
 
-.center-header{
+.align-header{
   text-align: right;
   padding: .33rem;
 }

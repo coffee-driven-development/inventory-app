@@ -34,8 +34,8 @@ export const App = () => {
 
   if(selectedPage === "Main View") {
     return (<main>
-        <h1 className="center-header">Inventory App</h1>
-        <h2 className="center-header">All Items</h2>
+        <h1 className="align-header">Inventory App</h1>
+        <h2 className="align-header">All Items</h2>
         <div className="button-location">
           <button onClick={handleAddItemButton} className='button-59'>Add Item</button>
         </div>.
@@ -52,9 +52,11 @@ export const App = () => {
   )}
   else if (selectedPage === "Add Item") {
     return (<main>
-      <h1 className="centerHeader">Inventory App</h1>
-      <h2 className="centerHeader">All Items</h2>
-      <h1>Add Item</h1>
+      <h1 className="align-header">Inventory App</h1>
+      <h2 className="align-header">All Items</h2>
+      <div className="button-location">
+          <button onClick={handleAddItemButton} className='button-59'>Add Item</button>
+      </div>.
       <hr></hr>
       <AddItem
         newItem={newItem}
@@ -67,8 +69,8 @@ export const App = () => {
 
   else if (selectedPage === "Single Item") {
     return(<main>
-        <h1 className="centerHeader">Inventory App</h1>
-        <h2 className="centerHeader">All Items</h2>
+        <h1 className="align-header">Inventory App</h1>
+        <h2 className="align-header">All Items</h2>
         <hr></hr>
       <Item
         setSelectedPage={setSelectedPage}
