@@ -26,6 +26,41 @@
   padding:0;
 }
 
+form{
+  max-width: 450px;
+  max-height: 600px;
+  margin: 0 auto;
+}
+
+.buttons-div{
+  text-align: center;
+}
+
+.input-form{
+  padding:10px;
+  margin:10px 0;
+  border: 0;
+  width:100%;
+  box-shadow:0 0 15px 4px rgba(0,0,0,0.06);
+  border: 1px solid #eee;
+  border-radius:10px;
+}
+
+.form-page-style{
+  margin: 20px .33rem;
+}
+
+.item-list{
+  padding: 5px;
+  font-size: 1.3rem;
+  border-bottom-style: solid;
+  cursor: pointer;
+}
+
+.item-list:hover{
+  color: #06f;
+}
+
 
 .button-59 {
   align-items: center;
@@ -39,11 +74,11 @@
   font-family: Inter,sans-serif;
   font-size: 16px;
   font-weight: 600;
-  height: 48px;
+  height: 38px;
   justify-content: center;
   letter-spacing: -.8px;
   line-height: 24px;
-  min-width: 140px;
+  min-width: 100px;
   outline: 0;
   padding: 0 17px;
   text-align: center;
@@ -73,7 +108,7 @@
 
 @media (min-width: 768px) {
   .button-59 {
-    min-width: 170px;
+    min-width: 130px;
   }
 }
 

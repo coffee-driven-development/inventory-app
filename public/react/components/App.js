@@ -38,9 +38,9 @@ export const App = () => {
         <h2 className="align-header">All Items</h2>
         <div className="button-location">
           <button onClick={handleAddItemButton} className='button-59'>Add Item</button>
-        </div>.
-        <hr></hr>
-        <div>
+        </div>
+        <br></br><hr></hr>
+        <div className="form-page-style">
           {items.map((item, idx) => <ItemsList
             item={item}
             key={idx}
@@ -53,10 +53,7 @@ export const App = () => {
   else if (selectedPage === "Add Item") {
     return (<main>
       <h1 className="align-header">Inventory App</h1>
-      <h2 className="align-header">All Items</h2>
-      <div className="button-location">
-          <button onClick={handleAddItemButton} className='button-59'>Add Item</button>
-      </div>.
+      <h2 className="align-header">Add Items</h2>
       <hr></hr>
       <AddItem
         newItem={newItem}
@@ -70,7 +67,7 @@ export const App = () => {
   else if (selectedPage === "Single Item") {
     return(<main>
         <h1 className="align-header">Inventory App</h1>
-        <h2 className="align-header">All Items</h2>
+        <h2 className="align-header">{currentItem.title}</h2>
         <hr></hr>
       <Item
         setSelectedPage={setSelectedPage}
